@@ -1,0 +1,19 @@
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <script type="text/javascript" id="www-widgetapi-script" src="test-standalone_files/www-widgetapi.js" async=""></script><script src="test-standalone_files/Ohmni-standalone.js"></script>
+      <script type="text/javascript" src="test-standalone_files/player_api" async="" defer="defer"></script>
+      <meta charset="utf-8">
+    </head>
+    
+    <body onload="onLoad()">
+    <h3>Ohmni API test</h3>
+    <div style="text-align:center; padding-top: 25px">
+        <button onclick="UTESpeech()">Chinese Speech</button>
+    </div>
+
+<script>
+    function UTESpeech() {
+  Ohmni.setSpeechLanguage("vi-VN");
+  Ohmni.say("Xin chào các bạn");
+}
+</script>
