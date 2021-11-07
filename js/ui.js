@@ -1,3 +1,11 @@
+if (
+    window.screen.width < 1024 &&
+    (window.performance || window.performance.type == 1)
+) {
+    document
+        .querySelectorAll("#travel .travel-content")
+        .forEach((ele) => ele.classList.remove("show"));
+}
 // change page content
 const navLinks = document.querySelectorAll(".sidebar-item");
 const pageContents = document.querySelectorAll(".page-container .section");
@@ -42,17 +50,42 @@ tabLinks.forEach(function (tabLink) {
 });
 
 // campus
+const travelMap = document.querySelector("#travel .travel-map");
 const travelZones = document.querySelectorAll("#travel .travel-zone");
 const travelContents = document.querySelectorAll("#travel .travel-content");
+const travelBacks = document.querySelectorAll("#travel .travel-back");
 
 travelZones.forEach(function (zone) {
     zone.addEventListener("click", function () {
-        travelZones.forEach((item) => item.classList.remove("active"));
-        travelContents.forEach((content) => content.classList.remove("show"));
-        let selectedZone = zone.getAttribute("data-zone");
-        setTimeout(() => {
-            this.classList.add("active");
+        console.log(window.screen.width);
+        if (window.screen.width < 1024) {
+            console.log("smaller");
+            travelMap.classList.add("hide");
+            travelZones.forEach((item) => item.classList.remove("active"));
+            travelContents.forEach((content) =>
+                content.classList.remove("show")
+            );
+            let selectedZone = zone.getAttribute("data-zone");
             document.getElementById(selectedZone).classList.add("show");
-        }, 300);
+        } else {
+            console.log("larger");
+            travelZones.forEach((item) => item.classList.remove("active"));
+            travelContents.forEach((content) =>
+                content.classList.remove("show")
+            );
+            let selectedZone = zone.getAttribute("data-zone");
+            setTimeout(() => {
+                this.classList.add("active");
+                document.getElementById(selectedZone).classList.add("show");
+            }, 300);
+        }
+    });
+});
+
+travelBacks.forEach(function (back) {
+    back.addEventListener("click", function (e) {
+        e.preventDefault();
+        travelMap.classList.remove("hide");
+        travelContents.forEach((content) => content.classList.remove("show"));
     });
 });
