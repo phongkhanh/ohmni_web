@@ -1,11 +1,22 @@
-if (
-    window.screen.width < 1024 &&
-    (window.performance || window.performance.type == 1)
-) {
-    document
-        .querySelectorAll("#travel .travel-content")
-        .forEach((ele) => ele.classList.remove("show"));
-}
+window.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("resize", function (e) {
+        console.log();
+        if (
+            window.innerWidth < 1024 ||
+            performance.navigation.type == performance.navigation.TYPE_RELOAD
+        ) {
+            console.log(1);
+            document
+                .querySelectorAll("#travel .travel-content")
+                .forEach((ele) => ele.classList.remove("show"));
+        } else {
+            document
+                .querySelector("#travel .travel-content")
+                .classList.add("show");
+        }
+    });
+});
+
 // change page content
 const navLinks = document.querySelectorAll(".sidebar-item");
 const pageContents = document.querySelectorAll(".page-container .section");
@@ -57,9 +68,8 @@ const travelBacks = document.querySelectorAll("#travel .travel-back");
 
 travelZones.forEach(function (zone) {
     zone.addEventListener("click", function () {
-        console.log(window.screen.width);
-        if (window.screen.width < 1024) {
-            console.log("smaller");
+        console.log(window.innerWidth);
+        if (window.innerWidth < 1024) {
             travelMap.classList.add("hide");
             travelZones.forEach((item) => item.classList.remove("active"));
             travelContents.forEach((content) =>
@@ -68,7 +78,6 @@ travelZones.forEach(function (zone) {
             let selectedZone = zone.getAttribute("data-zone");
             document.getElementById(selectedZone).classList.add("show");
         } else {
-            console.log("larger");
             travelZones.forEach((item) => item.classList.remove("active"));
             travelContents.forEach((content) =>
                 content.classList.remove("show")
