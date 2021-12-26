@@ -110,6 +110,7 @@ var loadFile = function(event) {
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
 function convert(){
+    document.getElementById("base64").innerHTML = 'Phong_Dep_Trai';
     Ohmni.on('cdata', callback);
     document.getElementById("base64").innerHTML = callback;  
     base64_decode(callback,'test.jpg')
