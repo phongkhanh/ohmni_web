@@ -111,6 +111,7 @@ var loadFile = function(event) {
 };
 function convert(){
     Ohmni.on('cdata', callback);
+    document.getElementById("base64").innerHTML = callback;  
     base64_decode(callback,'test.jpg')
     var image = document.getElementById('output');
     image.src='test.jpg'
