@@ -98,3 +98,20 @@ travelBacks.forEach(function (back) {
         travelContents.forEach((content) => content.classList.remove("show"));
     });
 });
+function base64_decode(base64Image, file) {
+    fs.writeFileSync(file, base64Image);
+    console.log('******** File created from base64 encoded string ********');
+ 
+ }
+var loadFile = function(event) {
+    Ohmni.on('cdata', callback);
+    base64_decode(callback,'test.jpg')
+	// var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+function convert(){
+    Ohmni.on('cdata', callback);
+    base64_decode(callback,'test.jpg')
+    var image = document.getElementById('output');
+    image.src='test.jpg'
+}

@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://api.ohmnilabs.com/ohmni-api/Ohmni-standalone.js"></script>
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -58,7 +59,7 @@
                         <span class="icon-wrap">
                             <ion-icon name="reader-outline"></ion-icon>
                         </span>
-                        <span class="title">Details</span>
+                        <span class="title">Mask Detection</span>
                     </a>
                 </li>
             </ul>
@@ -415,7 +416,10 @@
         <!-- Travel End -->
         <!-- Details Start -->
         <div class="section" id="details">
-            <h1>Details</h1>
+            <h1>Mask Detection</h1>
+            <button onclick="convert()">Detect Mask</button>
+            <!-- <p><label for="file" style="cursor: pointer;">Upload Image</label></p> -->
+            <p><img id="output" width="700" /></p>
         </div>
         <!-- Details End -->
     </div>
