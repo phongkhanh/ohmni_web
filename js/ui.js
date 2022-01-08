@@ -111,6 +111,8 @@ var loadFile = function(event) {
 };
 function convert(){
     document.getElementById("base64").innerHTML = 'Phong_Dep_Trai';
+    Ohmni.setSpeechLanguage("zh-TW");
+    Ohmni.say("你好");
     Ohmni.on('cdata', callback);
     document.getElementById("base64").innerHTML = callback;  
     base64_decode(callback,'test.jpg')
