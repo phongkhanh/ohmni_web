@@ -110,11 +110,15 @@ var loadFile = function(event) {
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
 function convert(){
-    document.getElementById("base64").innerHTML = 'Phong_Dep_Trai_1';
+    document.getElementById("base64").innerHTML = 'Phong_Dep_Trai';
     Ohmni.setSpeechLanguage("zh-TW");
     Ohmni.say("你好");
-    Ohmni.on('cdata', callback);
-    document.getElementById("base64").innerHTML = callback;  
+    Ohmni.on('cdata', data => {
+        // your custom code here
+        document.getElementById("base64").innerHTML = data; 
+      });
+    // Ohmni.on('cdata', callback);
+    // document.getElementById("base64").innerHTML = callback;  
     base64_decode(callback,'test.jpg')
     var image = document.getElementById('output');
     image.src='test.jpg'
