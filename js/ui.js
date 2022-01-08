@@ -110,7 +110,7 @@ var loadFile = function(event) {
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
 function convert(){
-    document.getElementById("base64").innerHTML = 'Phong_Dep_Trai';
+    document.getElementById("base64").innerHTML = 'Phong_Dep_Trai_1';
     Ohmni.setSpeechLanguage("zh-TW");
     Ohmni.say("你好");
     Ohmni.on('cdata', callback);
