@@ -98,3 +98,30 @@ travelBacks.forEach(function (back) {
         travelContents.forEach((content) => content.classList.remove("show"));
     });
 });
+
+// mask detection
+const maskBtn = document.querySelector("#mask-btn");
+const maskContent = document.querySelector(".mask-detection-content");
+let maskAction = false;
+const maskBox = document.querySelectorAll(".mask-box");
+let imgCount = 1;
+
+maskBtn.addEventListener("click", function () {
+    if (!maskAction) {
+        maskContent.classList.add("show");
+        maskBtn.innerText = "Stop";
+        maskAction = true;
+        inteval = setInterval(changeMask, 10000);
+    } else {
+        maskContent.classList.remove("show");
+        maskBtn.innerText = "Start";
+        maskAction = false;
+    }
+});
+
+function changeMask() {
+    if (imgCount >= 5) imgCount = 1;
+    else imgCount++;
+    maskBox[0].style.background = `url("../images/mask/${imgCount}.jpg") no-repeat center / cover`;
+    maskBox[1].style.background = `url("../images/no-mask/${imgCount}.jpg") no-repeat center / cover`;
+}
